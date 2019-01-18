@@ -22,12 +22,12 @@ npm run client
 Between the server and client, you'll need two terminal tabs! Because we're using `nodemon`, both our client side and server side will automatically spin back up when changes are made!
 
 ## BASE MODE
-- Use `axios` to retrieve (`GET`) data from to `/gallery` and store it in `App.js`.
-- Create a new **component** for the `GalleryList` and pass it the gallery data stored in `App` via `props`.
-    - Break apart the list of gallery data
-- Create a new **component** called `GalleryItem.js` and pass it the individual gallery item via `props`. 
-    - Display all of the images on the screen.
-- Swap the image with the description on click. Research [conditional rendering](https://reactjs.org/docs/conditional-rendering.html).
+X Use `axios` to retrieve (`GET`) data from to `/gallery` and store it in `App.js`.
+X Create a new **component** for the `GalleryList` and pass it the gallery data stored in `App` via `props`.
+    X Break apart the list of gallery data
+X Create a new **component** called `GalleryItem.js` and pass it the individual gallery item via `props`. 
+    X Display all of the images on the screen.
+X Swap the image with the description on click. Research [conditional rendering](https://reactjs.org/docs/conditional-rendering.html).
 - Display the number likes for each item and include a like button.
 - When the like button is clicked, use `Axios` to update (`PUT`) the like count `/gallery/like/:id`.
     - Update the gallery each time a like button is clicked.
