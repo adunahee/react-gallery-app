@@ -1,7 +1,27 @@
 import React, { Component } from 'react';
 import './App.css';
+import Axios from 'axios';
 
 class App extends Component {
+
+  componentDidMount () {
+    this.refreshGallery();
+  }
+
+  refreshGallery = () => {
+    Axios({
+      method: 'GET',
+      url: '/gallery'
+    }).then((response) => {
+      this.setState({
+        gallery: response.data,
+      });
+      console.log(response.data);
+    }).catch((error)=> {
+      console.log(`Error in refresh gallery`, error);
+    })
+  }
+
   render() {
     return (
       <div className="App">
