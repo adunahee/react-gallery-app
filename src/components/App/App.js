@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Axios from 'axios';
+import Gallery from './../Gallery/Gallery.js'
 
 class App extends Component {
   constructor(){
@@ -37,8 +38,7 @@ class App extends Component {
           <h1 className="App-title">Gallery of my life</h1>
         </header>
         <br/>
-        <p>Gallery goes here</p>
-        <img src="images/goat_small.jpg"/>
+        <Gallery gallery={this.state.gallery} refreshGallery={this.refreshGallery}/>
       </div>
     );
   }
