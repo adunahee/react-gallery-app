@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Axios from 'axios';
 
 class GalleryPhoto extends Component {
     constructor(props) {
@@ -12,11 +13,22 @@ class GalleryPhoto extends Component {
         let newClick = !this.state.selected;
         this.setState({
             selected: newClick,
+        });
+    };
+
+    handleLikeButton = () => {
+        Axios({
+            method: 'PUT',
+            url: `/gallery/like/${this.props.photoObj.id}`
+        }).then((response) => {
+            this.props.refreshGallery();
+        }).catch((error) => {
+            console.log(`error in handleLikeButton PUT`, error);
         })
-    }
+    };
 
     photoSide = () => {
-        if(this.state.selected === false){
+        if (this.state.selected === false) {
             return (
                 <div >
                     <img
@@ -25,14 +37,14 @@ class GalleryPhoto extends Component {
                         alt={this.props.photoObj.description}
                         onClick={this.handlePhotoClick}
                         className="photo-box"
-                        >
+                    >
                     </img>
-                    <br/>
+                    <br />
                     <span>{this.props.photoObj.likes} likes.</span>
                     <br />
-                    <button>Like!</button>
+                    <button onClick={this.handleLikeButton}>Like!</button>
                 </div>
-                
+
             )
         } else {
             return (
@@ -45,7 +57,7 @@ class GalleryPhoto extends Component {
                     <br />
                     <span>{this.props.photoObj.likes} likes.</span>
                     <br />
-                    <button>Like!</button>
+                    <button onClick={this.handleLikeButton}>Like!</button>
                 </div>
             )
         }

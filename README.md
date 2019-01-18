@@ -28,9 +28,9 @@ X Create a new **component** for the `GalleryList` and pass it the gallery data 
 X Create a new **component** called `GalleryItem.js` and pass it the individual gallery item via `props`. 
     X Display all of the images on the screen.
 X Swap the image with the description on click. Research [conditional rendering](https://reactjs.org/docs/conditional-rendering.html).
-- Display the number likes for each item and include a like button.
-- When the like button is clicked, use `Axios` to update (`PUT`) the like count `/gallery/like/:id`.
-    - Update the gallery each time a like button is clicked.
+X Display the number likes for each item and include a like button.
+X When the like button is clicked, use `Axios` to update (`PUT`) the like count `/gallery/like/:id`.
+    X Update the gallery each time a like button is clicked.
 
 ### Wireframes
 
