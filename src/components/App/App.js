@@ -3,6 +3,12 @@ import './App.css';
 import Axios from 'axios';
 
 class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+      gallery: []
+    };
+  }
 
   componentDidMount () {
     this.refreshGallery();
@@ -16,13 +22,15 @@ class App extends Component {
       this.setState({
         gallery: response.data,
       });
-      console.log(response.data);
+      //console.log(`in refresh gallery`, response.data);
     }).catch((error)=> {
       console.log(`Error in refresh gallery`, error);
     })
   }
 
   render() {
+    //console.log(this.state.gallery);
+    
     return (
       <div className="App">
         <header className="App-header">
