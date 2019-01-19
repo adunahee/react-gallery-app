@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import Axios from 'axios';
-import Gallery from './../Gallery/Gallery.js'
-import AddPhotoForm from './../AddPhotoForm/AddPhotoForm.js'
+import Gallery from './../Gallery/Gallery.js';
+import AddPhotoForm from './../AddPhotoForm/AddPhotoForm.js';
+import Icon from '@material-ui/core/Icon';
 
 class App extends Component {
   constructor() {
@@ -36,7 +37,8 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Gallery of my life</h1>
+          <h1 className="App-title">Welcome to Anthony's Gallery</h1>
+          <Icon>star</Icon> 
         </header>
         <br />
 

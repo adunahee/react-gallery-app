@@ -38,7 +38,7 @@ router.put('/like/:id', (req, res) => {
 
 // GET Route
 router.get('/', (req, res) => {
-    pool.query(`SELECT * FROM "photos" ORDER BY "year" DESC;`).then((result) => {
+    pool.query(`SELECT * FROM "photos" ORDER BY "year" DESC, "id";`).then((result) => {
         res.send(result.rows);
     }).catch((error) => {
         console.log(`Error during get`, error);

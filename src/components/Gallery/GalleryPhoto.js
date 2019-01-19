@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
+import DeleteIcon from '@material-ui/icons/Delete';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
 
 class GalleryPhoto extends Component {
     constructor(props) {
@@ -33,51 +39,69 @@ class GalleryPhoto extends Component {
             url: `/gallery/delete/${this.props.photoObj.id}`
         }).then((response) => {
             this.props.refreshGallery();
-        }).catch((error)=> {
+        }).catch((error) => {
             console.log(`error in handleDeleteButton DELETE`, error);
-            
+
         })
     }
 
-    photoSide = () => {
+    flipPhoto = () => {
         if (this.state.selected === false) {
             return (
-                <div >
+                <CardContent onClick={this.handlePhotoClick}>
                     <img
                         src={this.props.photoObj.path}
                         key={this.props.key}
                         alt={this.props.photoObj.description}
                         onClick={this.handlePhotoClick}
                         className="photo-box"
-                    >
-                    </img>
-                    <br />
-                    <span>{this.props.photoObj.likes} likes.</span>
-                    <br />
-                    <button onClick={this.handleLikeButton}>Like!</button>
-                    <button onClick={this.handleDeleteButton}>Delete</button>
-                </div>
-
+                    ></img>
+                    <Typography className="transparent" onClick={this.handlePhotoClick}>
+                            {this.props.photoObj.description}
+                    </Typography>
+                    <Typography>
+                        <span>{this.props.photoObj.likes} likes.</span>
+                    </Typography>
+                </CardContent>
             )
         } else {
             return (
-                <div>
-                    <div className="photo-box">
-                        <p onClick={this.handlePhotoClick}>
+                <CardContent onClick={this.handlePhotoClick}>
+                    <img
+                        src={this.props.photoObj.path}
+                        key={this.props.key}
+                        alt={this.props.photoObj.description}
+                        className="transparent photo-box"
+                        onClick={this.handlePhotoClick}
+                    ></img>
+                    <Typography onClick={this.handlePhotoClick}>
                             {this.props.photoObj.description}
-                        </p>
-                    </div>
-                    <br />
-                    <span>{this.props.photoObj.likes} likes.</span>
-                    <br />
-                    <button onClick={this.handleLikeButton}>Like!</button>
-                </div>
+                    </Typography>
+                    <Typography>
+                        <span className="transparent">{this.props.photoObj.likes} likes.</span>
+                    </Typography>
+                </CardContent>
             )
         }
     }
     render() {
         return (
-            this.photoSide()
+            <Card className="photo-card" >
+                {this.flipPhoto()}
+                <CardActions className="photo-bar">
+                    <Button variant="contained"
+                        color="primary"
+                        onClick={this.handleLikeButton}>
+                        Like!
+                        </Button>
+                    <Button variant="contained"
+                        color="secondary"
+                        onClick={this.handleDeleteButton}>
+                        Delete
+                            <DeleteIcon />
+                    </Button>
+                </CardActions>
+            </Card>
         )
     }
 }

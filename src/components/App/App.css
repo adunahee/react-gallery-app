@@ -26,3 +26,26 @@
   max-width: 200px;
   max-height: 200px;
 }
+
+.photo-card {
+  max-width: 400px;
+  max-height: 400px;
+  display:  inline-block;
+}
+
+body {
+  background-color: slategray;
+}
+
+.transparent {
+  opacity: 0;
+}
+
+.photo-bar {
+  background-color: black;
+}
+
+.photo-form {
+  display: inline-block;
+  padding: 20px;
+}
