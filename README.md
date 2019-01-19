@@ -49,12 +49,12 @@ For each `feature` of your application, make a branch, work on the branch, and t
 **Do not start on stretch goals until ALL of base mode is complete. Some of these will require additional research.**
 
 
-- Move the data into a database (postgresql)
-- Add a form (new **component**) that allows a user to POST a new gallery item
-  - Client side form (use absolute URL for images)
-  - Server side route for posting an image
-- Ability to delete a gallery item
-- Add styling with Material-UI [https://material-ui.com/](https://material-ui.com/)
+X Move the data into a database (postgresql)
+X Add a form (new **component**) that allows a user to POST a new gallery item
+  X Client side form (use absolute URL for images)
+  X Server side route for posting an image
+X Ability to delete a gallery item
+X Add styling with Material-UI [https://material-ui.com/](https://material-ui.com/)
 - Implement [uppy](https://uppy.io/) for image upload 
 
 > NOTE: The above stretch goals are intended to be completed in order.
