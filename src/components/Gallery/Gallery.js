@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import GalleryPhoto from './../Gallery/GalleryPhoto';
 
+
 class Gallery extends Component {
     
     buildGalleryPhotos = () => {
