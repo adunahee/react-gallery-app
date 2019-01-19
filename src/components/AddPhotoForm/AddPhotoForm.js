@@ -17,10 +17,14 @@ class AddPhotoForm extends Component {
             data: this.state,
         }).then((response) => {
             this.props.refreshGallery();
+            this.pathInput.value = '';
+            this.descInput.value = '';
+            this.yearInput.value = '';
         }).catch((error) => {
             alert(`Unable to submit your picture at this time.`)
             console.log(error);
         })
+        event.target.reset();
     }
 
     componentDidMount() {
@@ -35,12 +39,16 @@ class AddPhotoForm extends Component {
     }
 
     dummyInputValues = () => {
+        this.pathInput.value = 'http://mymodernmet.com/wp/wp-content/uploads/2017/05/Daguerreotype-Daguerre-Atelier-1837.jpg';
+        this.yearInput.value = '1826';
+        this.descInput.value = 'The Oldest Photo Ever Taken.';  
         this.setState({
-            path: 'http://mymodernmet.com/wp/wp-content/uploads/2017/05/Daguerreotype-Daguerre-Atelier-1837.jpg',
             year: '1826',
+            path: 'http://mymodernmet.com/wp/wp-content/uploads/2017/05/Daguerreotype-Daguerre-Atelier-1837.jpg', 
             description: 'The Oldest Photo Ever Taken.',
         })
     }
+
 
     render() {
 
@@ -56,7 +64,7 @@ class AddPhotoForm extends Component {
                         placeholder="http://example.com"
                         onChange={this.handleFormChange}
                         required
-                        value={this.state.path}>
+                        ref={(ref) => this.pathInput = ref}>
                     </input>
                     <br />
                     <label htmlFor="description">Description for Photo</label>
@@ -65,7 +73,7 @@ class AddPhotoForm extends Component {
                         placeholder="240 character maximum"
                         onChange={this.handleFormChange}
                         required
-                        value={this.state.description}>
+                        ref={(ref) => this.descInput = ref}>
                     </textarea>
                     <br />
 
@@ -78,7 +86,7 @@ class AddPhotoForm extends Component {
                         pattern="^[1][8][2][6-9]|[1][8][3-9][0-9]| [1][9][0-9]{1,2}|[2][0][05][0-9]$"
                         onChange={this.handleFormChange}
                         required
-                        value={this.state.year}>
+                        ref={(ref) => this.yearInput = ref}>
                     </input>
                     <button type="submit">Submit</button>
                 </div>
