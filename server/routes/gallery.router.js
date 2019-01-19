@@ -57,4 +57,15 @@ router.delete('/delete/:id', (req, res) => {
         });
     });
 
+router.post('/', (req, res) => {
+    let queryText = `INSERT INTO "photos" ("year", "description", "path")
+                        VALUES ($1, $2, $3);`
+    pool.query(queryText, [req.body.year, req.body.description, req.body.path]).then((result)=> {
+        res.sendStatus(201);
+    }).catch((error)=> {
+        console.log(`Error in /gallery POST`, error);
+        res.sendStatus(500);
+    });
+})
+
     module.exports = router;
