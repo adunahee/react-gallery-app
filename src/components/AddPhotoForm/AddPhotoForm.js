@@ -22,19 +22,29 @@ class AddPhotoForm extends Component {
         })
     }
 
+    componentDidMount () {
+        this.dummyInputValues();
+    }
+
     handleFormChange = (event) => {
         this.setState({
             [event.target.id]: event.target.value,
     })
     //console.log(event.target.value);
-}
+    }
 
+    dummyInputValues = () => {
+        this.setState({
+            path: 'http://mymodernmet.com/wp/wp-content/uploads/2017/05/Daguerreotype-Daguerre-Atelier-1837.jpg', 
+            year: '1826',
+            description: 'The Oldest Photo Ever Taken.', 
+        })
+    }
 
     render() {
 
         console.log(this.state);
         return(
-            
             <form onSubmit={this.handleFormSubmit}>
             <h2>Form to Add New Photo</h2>
             <p>All Fields are Required.</p>
@@ -43,7 +53,8 @@ class AddPhotoForm extends Component {
                        type="url" 
                        placeholder="http://example.com"
                        onChange={this.handleFormChange}
-                       required>
+                       required
+                       value={this.state.path}>
                 </input>
                 <br/>
                 <label htmlFor="description">Description for Photo</label>
@@ -51,7 +62,8 @@ class AddPhotoForm extends Component {
                           maxLength="240"  
                           placeholder="240 character maximum"
                           onChange={this.handleFormChange}
-                          required>
+                          required
+                          value={this.state.description}>
                 </textarea>
                 <br/>
             
@@ -63,7 +75,8 @@ class AddPhotoForm extends Component {
                        //uses regular expression to validate for year range between 1826 nad 2059
                        pattern="^[1][8][2][6-9]|[1][8][3-9][0-9]| [1][9][0-9]{1,2}|[2][0][05][0-9]$"
                        onChange={this.handleFormChange}
-                       required>
+                       required
+                       value={this.state.year}>
                 </input>
                 <button type="submit">Submit</button>
             </form>
