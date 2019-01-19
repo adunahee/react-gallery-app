@@ -27,6 +27,18 @@ class GalleryPhoto extends Component {
         })
     };
 
+    handleDeleteButton = () => {
+        Axios({
+            method: 'DELETE',
+            url: `/gallery/delete/${this.props.photoObj.id}`
+        }).then((response) => {
+            this.props.refreshGallery();
+        }).catch((error)=> {
+            console.log(`error in handleDeleteButton DELETE`, error);
+            
+        })
+    }
+
     photoSide = () => {
         if (this.state.selected === false) {
             return (
@@ -43,6 +55,7 @@ class GalleryPhoto extends Component {
                     <span>{this.props.photoObj.likes} likes.</span>
                     <br />
                     <button onClick={this.handleLikeButton}>Like!</button>
+                    <button onClick={this.handleDeleteButton}>Delete</button>
                 </div>
 
             )
