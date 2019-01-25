@@ -22,7 +22,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 - [Node.js](https://nodejs.org/en/)
-- [Postgresql] (https://www.postgresql.org/)
+- [Postgresql](https://www.postgresql.org/)
 
 ### Installing
 
@@ -35,24 +35,25 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## Screen Shot
 
-! [runningApp] (wireframes/running-app.png) 
+![runningApp](./wireframes/running-app.png) 
 
 ### Completed Features
-[X] Move the data into a database (postgresql)
-[X] Add a form (new **component**) that allows a user to POST a new gallery item
-  [X] Client side form (use absolute URL for images)
-  [X] Server side route for posting an image
-[X] Ability to delete a gallery item
-[X] Add styling with Material-UI [https://material-ui.com/](https://material-ui.com/)
+-  Gallery with photocards that show description on click
+-  Move the data into a database (postgresql)
+-  Add a form (new **component**) that allows a user to POST a new gallery item
+    -  Client side form (use absolute URL for images)
+    -  Server side route for posting an image
+- Ability to delete and like a gallery item
+- Add styling with Material-UI [https://material-ui.com/](https://material-ui.com/)
 
 ### Next Steps
-[] Implement [uppy](https://uppy.io/) for image upload 
-[] Style form using material-ui
-[] Update app to use react-router 
-[] Have navbar to switch between gallery and photo submit form
+- Implement [uppy](https://uppy.io/) for image upload 
+- Style form using material-ui
+- Update app to use react-router 
+- Have navbar to switch between gallery and photo submit form
 
 ## Authors
 * Anthony Dunahee
 
 ## Acknowledgements
-Special thanks to Prime Digital Academy instructional staff for shaping task and providing feedback on refactoring my conditional rendoring. 
+Special thanks to Prime Digital Academy instructional staff for shaping task, providing some server code and providing feedback on refactoring my conditional rendoring. 
