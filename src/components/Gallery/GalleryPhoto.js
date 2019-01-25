@@ -48,17 +48,14 @@ class GalleryPhoto extends Component {
     flipPhoto = () => {
         if (this.state.selected === false) {
             return (
-                <CardContent onClick={this.handlePhotoClick}>
-                    <img
-                        src={this.props.photoObj.path}
-                        key={this.props.key}
-                        alt={this.props.photoObj.description}
-                        onClick={this.handlePhotoClick}
-                        className="photo-box"
-                    ></img>
-                    <Typography className="transparent" onClick={this.handlePhotoClick}>
-                            {this.props.photoObj.description}
-                    </Typography>
+                <CardContent onClick={this.handlePhotoClick} className='card-content'>
+                    <div className="photo-box">
+                        <img
+                            src={this.props.photoObj.path}
+                            alt={this.props.photoObj.description}
+                            onClick={this.handlePhotoClick}
+                        ></img>
+                    </div>
                     <Typography>
                         <span>{this.props.photoObj.likes} likes.</span>
                     </Typography>
@@ -66,19 +63,12 @@ class GalleryPhoto extends Component {
             )
         } else {
             return (
-                <CardContent onClick={this.handlePhotoClick}>
-                    <img
-                        src={this.props.photoObj.path}
-                        key={this.props.key}
-                        alt={this.props.photoObj.description}
-                        className="transparent photo-box"
-                        onClick={this.handlePhotoClick}
-                    ></img>
-                    <Typography onClick={this.handlePhotoClick}>
-                            {this.props.photoObj.description}
+                <CardContent onClick={this.handlePhotoClick} className='card-content'>
+                    <Typography className="photo-box">
+                        <strong>{this.props.photoObj.description}</strong>
                     </Typography>
                     <Typography>
-                        <span className="transparent">{this.props.photoObj.likes} likes.</span>
+                        <span>{this.props.photoObj.likes} likes.</span>
                     </Typography>
                 </CardContent>
             )

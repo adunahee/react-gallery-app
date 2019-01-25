@@ -23,22 +23,18 @@
 }
 
 .photo-box {
-  max-width: 200px;
-  max-height: 200px;
+  width: 300px;
+  height: 300px;
 }
 
 .photo-card {
-  max-width: 400px;
-  max-height: 400px;
   display:  inline-block;
+  margin: 10px;
+  background-color: whitesmoke;
 }
 
 body {
   background-color: slategray;
-}
-
-.transparent {
-  opacity: 0;
 }
 
 .photo-bar {
@@ -48,4 +44,12 @@ body {
 .photo-form {
   display: inline-block;
   padding: 20px;
+}
+
+.card-content {
+  height: 325;
+}
+
+.gallery-tabletop {
+  background-color: sienna;
 }
