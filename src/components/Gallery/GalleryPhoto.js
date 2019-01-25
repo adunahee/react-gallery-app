@@ -48,36 +48,49 @@ class GalleryPhoto extends Component {
     flipPhoto = () => {
         if (this.state.selected === false) {
             return (
-                <CardContent onClick={this.handlePhotoClick} className='card-content'>
-                    <div className="photo-box">
-                        <img
-                            src={this.props.photoObj.path}
-                            alt={this.props.photoObj.description}
-                            onClick={this.handlePhotoClick}
-                        ></img>
-                    </div>
-                    <Typography>
-                        <span>{this.props.photoObj.likes} likes.</span>
-                    </Typography>
-                </CardContent>
+                <div className="photo-box">
+                    <img
+                        src={this.props.photoObj.path}
+                        alt={this.props.photoObj.description}
+                        onClick={this.handlePhotoClick}
+                    ></img>
+                </div>
             )
         } else {
             return (
-                <CardContent onClick={this.handlePhotoClick} className='card-content'>
-                    <Typography className="photo-box">
-                        <strong>{this.props.photoObj.description}</strong>
-                    </Typography>
-                    <Typography>
-                        <span>{this.props.photoObj.likes} likes.</span>
-                    </Typography>
-                </CardContent>
+                <Typography className="photo-box">
+                    <strong>{this.props.photoObj.description}</strong>
+                </Typography>
             )
         }
     }
+
+    buildLike = () => {
+        switch (this.props.photoObj.likes) {
+            case 0:
+                return(
+                        <span>Be the first to like this!</span>
+                )
+            case 1:
+                return(
+                        <span>One person liked this.</span>
+                )
+            default:
+                return (
+                        <span>{this.props.photoObj.likes} people liked this.</span>
+                )
+        }
+    }
+
     render() {
         return (
             <Card className="photo-card" >
-                {this.flipPhoto()}
+                <CardContent onClick={this.handlePhotoClick} className='card-content'>
+                    {this.flipPhoto()}
+                    <Typography>
+                        {this.buildLike()}
+                    </Typography>
+                </CardContent>
                 <CardActions className="photo-bar">
                     <Button variant="contained"
                         color="primary"
