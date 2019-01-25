@@ -1,4 +1,4 @@
-CREATE DATABASE 'react-gallery';
+-- create database named "react-gallery" using postico
 
 CREATE TABLE "photos" (
     id SERIAL PRIMARY KEY,

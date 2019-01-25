@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import FormControl from '@material-ui/core/FormControl';
 
 class AddPhotoForm extends Component {
     constructor(props) {
