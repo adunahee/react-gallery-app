@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import FormControl from '@material-ui/core/FormControl';
 
 class AddPhotoForm extends Component {
     constructor(props) {
@@ -56,7 +57,7 @@ class AddPhotoForm extends Component {
             <form onSubmit={this.handleFormSubmit}>
                 <div className="photo-form">
                     <h2>Form to Add New Photo</h2>
-                    <p>All Fields are Required.</p>
+                    <p>All fields are required.</p>
                     <label htmlFor="path">URL for Photo</label>
                     <input id="path"
                         type="url"

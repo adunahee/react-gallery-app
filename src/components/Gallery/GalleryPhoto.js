@@ -68,16 +68,16 @@ class GalleryPhoto extends Component {
     buildLike = () => {
         switch (this.props.photoObj.likes) {
             case 0:
-                return(
-                        <span>Be the first to like this!</span>
+                return (
+                    <span>Be the first to like this!</span>
                 )
             case 1:
-                return(
-                        <span>One person liked this.</span>
+                return (
+                    <span>One person liked this.</span>
                 )
             default:
                 return (
-                        <span>{this.props.photoObj.likes} people liked this.</span>
+                    <span>{this.props.photoObj.likes} people liked this.</span>
                 )
         }
     }
